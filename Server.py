@@ -20,7 +20,7 @@ def getFile():
 
 def whichLesson():
     check_time = datetime.now().time()
-    times = [(time(8, 00), time(8, 45)), (time(8, 55), time(9, 40)), (time(9, 50), time(10, 35)), (time(10, 45), time(11, 30)), (time(11, 40), time(12, 25)), (time(12, 30), time(13, 15)), (time(13, 45), time(14, 30)), (time(14, 35), time(15, 20)), (time(15, 30), time(16, 15)), (time(16, 25), time(17, 10))]
+    times = [(time(8, 0), time(8, 45)), (time(8, 55), time(9, 40)), (time(9, 50), time(10, 35)), (time(10, 45), time(11, 30)), (time(11, 40), time(12, 25)), (time(12, 30), time(13, 15)), (time(13, 45), time(14, 30)), (time(14, 35), time(15, 20)), (time(15, 30), time(16, 15)), (time(16, 25), time(17, 10)), (time(17, 20), time(18, 5))]
 
     for i, (begin_time, end_time) in enumerate(times):
         if begin_time <= end_time:
