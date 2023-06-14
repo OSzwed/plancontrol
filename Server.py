@@ -3,6 +3,7 @@ import os
 from datetime import datetime, time
 import cherrypy
 from Dane import update
+import socket
 
 jsono = None
 
@@ -91,6 +92,17 @@ def getWolne(czas, day2):
     else:
         return "Break"
 
+def get_ip_address():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        sock.connect(("8.8.8.8", 80))
+        ip_address = sock.getsockname()[0]
+        return ip_address
+    except socket.error:
+        return None
+    finally:
+        sock.close()
+
 
 class Returner(object):
     @cherrypy.expose()
@@ -116,4 +128,5 @@ class Returner(object):
 
 if __name__ == '__main__':
     getFile()
+    cherrypy.config.update({'server.socket_host': get_ip_address()})
     cherrypy.quickstart(Returner())
