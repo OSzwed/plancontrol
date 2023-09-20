@@ -20,3 +20,5 @@ URLS:
       b) day - Dzień, z którego mają zostać wyświetlone dane (1 dla poniedziałku, 5 dla piątku)
       
   - update (Nie przyjmuje żadnych parametrów)
+
+  - nauczyciele (Nie przyjmuje żadnych parametrów)
