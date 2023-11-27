@@ -70,12 +70,12 @@ def update():
     saleget()
 
     jsonstr = json.dumps(saledata)
-    with open(os.path.realpath(os.path.dirname(__file__)) + "\\data.json", "w") as f:
+    with open(os.path.realpath(os.path.dirname(__file__)) + "/data.json", "w") as f:
         f.write(jsonstr)
         f.close()
 
     jsonstr2 = json.dumps(nauczyciele)
-    with open(os.path.realpath(os.path.dirname(__file__)) + "\\teach.json", "w") as f:
+    with open(os.path.realpath(os.path.dirname(__file__)) + "/teach.json", "w") as f:
         f.write(jsonstr2)
         f.close()
 

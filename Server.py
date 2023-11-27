@@ -2,6 +2,7 @@ import json
 import os
 from datetime import datetime, time
 import cherrypy
+import cherrypy_cors
 import pytz
 
 from Dane import update
@@ -12,12 +13,12 @@ jsono2 = None
 
 
 def getfile():
-    with open(os.path.realpath(os.path.dirname(__file__))+"\\data.json", "r") as f:
+    with open(os.path.realpath(os.path.dirname(__file__))+"/data.json", "r") as f:
         jsonstr = f.read()
         f.close()
     global jsono
     jsono = json.loads(jsonstr)
-    with open(os.path.realpath(os.path.dirname(__file__))+"\\teach.json", "r") as f:
+    with open(os.path.realpath(os.path.dirname(__file__))+"/teach.json", "r") as f:
         jsonstr2 = f.read()
         f.close()
     global jsono2
@@ -150,10 +151,13 @@ class Returner(object):
     
 
 if __name__ == '__main__':
-    if os.path.isfile(os.path.realpath(os.path.dirname(__file__))+"\\data.json"):
+    if os.path.isfile(os.path.realpath(os.path.dirname(__file__))+"/data.json"):
+        print(os.path.realpath(os.path.dirname(__file__))+"/data.json")
         getfile()
     else:
         update2()
         getfile()
-    cherrypy.config.update({'server.socket_host': get_ip_address()})
+    cherrypy_cors.install()
+    cherrypy.config.update({'server.socket_host': get_ip_address(), 'cors.expose.on': True})
     cherrypy.quickstart(Returner())
+    cherrypy_cors.preflight(allowed_methods=['GET'])
