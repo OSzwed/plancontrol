@@ -12,12 +12,16 @@ URLS:
       d) czas - Godzina lekcyjna, z której ma wyświeltić dane
       
       e) day - Dzień, z którego mają zostać wyświetlone dane (1 dla poniedziałku, 5 dla piątku)
+
+      [Zwraca "Break", jeśli obecny czas (brak ustawionego parametru day) jest po za godzinami lekcyjnymi (przed, po lub pomiędzy (przerwy)]
       
   - wolne | Parametry:
   
       a) czas - Godzina lekcyjna, z której ma wyświeltić dane
       
       b) day - Dzień, z którego mają zostać wyświetlone dane (1 dla poniedziałku, 5 dla piątku)
+
+      [Zwraca "Break", jeśli obecny czas (brak ustawionego parametru day) jest po za godzinami lekcyjnymi (przed, po lub pomiędzy (przerwy)]
       
   - update (Nie przyjmuje żadnych parametrów)
 
